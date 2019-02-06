@@ -3,19 +3,19 @@
   mb_internal_encoding("UTF-8");
   $respuesta = "";
   try {
-    $libro = trim(filter_input(INPUT_GET, "nombre1"));
-    $libro1 = trim(filter_input(INPUT_GET, "nombre2"));
-    if (!$libro) {
+    $autor = trim(filter_input(INPUT_GET, "autor"));
+    $libro = trim(filter_input(INPUT_GET, "libro"));
+    if (!$autor) {
       throw new Exception("Falta El Autor");
-    } elseif (!$libro1) {
+    } elseif (!$libro) {
       throw new Exception("Falta El Titulo");
     }
-    $respuesta = "Se encontro a $libro y el titulo de $libro1 ";
+    $respuesta = "Se encontro a $autor y el titulo de $libro ";
   } catch (Exception $e) {
     $respuesta = $e->getMessage();
   }
+  $autorEsc = htmlentities($autor, ENT_QUOTES | ENT_HTML5, 'UTF-8');
   $libroEsc = htmlentities($libro, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-  $libro1Esc = htmlentities($libro1, ENT_QUOTES | ENT_HTML5, 'UTF-8');
   $respuestaEsc = htmlentities($respuesta, ENT_QUOTES | ENT_HTML5, 'UTF-8');
   ?>
 <html lang="es">
@@ -25,7 +25,7 @@
 		<meta name="description">
 		<meta name="keywords" content="HTML5, CSS3, JavaScript">
 		<title>Aplicación Web 1</title>
-		<link rel="shortcut icon" href="Recursos/COFi.ico" />
+		<link rel="shortcut icon" href="Recursos/wolf.ico" />
 		<link rel="stylesheet" href= "CSS/pag.css">
 	</head>
 	<body>
@@ -53,18 +53,18 @@
       <img class="imagen5" src="IMAGENES/nig.png"/>
       <br>
       <br>
-            <h2>Busca Algú  n Libro Disponible Por Autor y Titulo</h2>
+            <h2>Busca Algún Libro Disponible Por Autor y Titulo</h2>
                   <br>  
     <form>
       <p>
         <center>
-        <input type="text" name="nombre1" placeholder="Autor"
+        <input type="text" name="autor" placeholder="Autor"
                 accesskey="1" value="<?= $libroEsc ?>">
       </p>
       <p>
         <br>
         <center>
-        <input type="text" name="nombre2" placeholder="Titulo"
+        <input type="text" name="libro" placeholder="Titulo"
                 accesskey="2" value="<?= $libro1Esc ?>">
       </p>
       <br>

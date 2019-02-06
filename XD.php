@@ -1,6 +1,6 @@
 <!doctype html>
   <?php 
-  mb_internal_encoding("UTF-8");
+    mb_internal_encoding("UTF-8");
   $respuesta = "";
   try {
     $autor = trim(filter_input(INPUT_GET, "autor"));
@@ -59,13 +59,13 @@
       <p>
         <center>
         <input type="text" name="autor" placeholder="Autor"
-                accesskey="1" value="<?= $libroEsc ?>">
+                accesskey="1" value="<?= $autorEsc ?>">
       </p>
       <p>
         <br>
         <center>
         <input type="text" name="libro" placeholder="Titulo"
-                accesskey="2" value="<?= $libro1Esc ?>">
+                accesskey="2" value="<?= $libroEsc ?>">
       </p>
       <br>
       <p>
